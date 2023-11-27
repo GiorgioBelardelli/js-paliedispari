@@ -1,19 +1,38 @@
-const userWord = prompt("Scrivi una parola");
+const userWord = document.getElementById("input-word");
+const checkButton = document.getElementById("submit-button");
+let wordToCheck;
 
 
-function checkPalindrome(userWord) {
 
-    const len = userWord.length;
+
+
+// const check = checkPalindrome();
+// document.getElementById("result").innerHTML = check;
+
+checkButton.addEventListener("click", 
+
+    function(){
+
+        wordToCheck = userWord.value; 
+
+        checkPalindrome();
+        const check = checkPalindrome();
+        document.getElementById("result").innerHTML = check;
+    }
+
+        
+)
+
+
+function checkPalindrome(wordToCheck) {
+
+    const len = wordToCheck.length;
 
     for (let i = 0; i < len / 2; i++) {
 
-        if (userWord[i] !== userWord[len - 1 - i]) {
+        if (wordToCheck[i] !== wordToCheck[len - 1 - i]) {
             return "la parola non e' palindroma";
         }
     }
     return "La parola e' palindroma";
 }
-
-const check = checkPalindrome(userWord);
-
-console.log(check);
